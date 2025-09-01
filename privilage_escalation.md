@@ -1,6 +1,6 @@
 # 🔐 All-in-One Privilege Escalation Cheat Sheet Repositories
 
-A curated list of GitHub repositories that consolidate Linux and Windows privilege escalation techniques. Useful for penetration testers, ethical hackers, and CTF players.
+A curated list of GitHub repositories consolidating Linux and Windows privilege escalation techniques. Useful for penetration testers, ethical hackers, and CTF players.
 
 ---
 
@@ -34,4 +34,16 @@ A curated list of GitHub repositories that consolidate Linux and Windows privile
 
 ---
 
-These repositories are invaluable for mastering privilege escalation across different operating systems, preparing for certifications like OSCP, and improving penetration testing skills.
+## 🛠 Automated Enumeration Tools
+
+Several tools can help save time during the enumeration process. **Note:** These tools may miss some privilege escalation vectors and should be used as a supplement rather than a replacement for manual enumeration. The target system’s environment will influence which tools can be run (e.g., Python-based tools require Python installed on the target).
+
+- [LinPEAS](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS) – Automated Linux privilege escalation checker.
+- [LinEnum](https://github.com/rebootuser/LinEnum) – Bash script for Linux enumeration.
+- [LES (Linux Exploit Suggester)](https://github.com/mzet-/linux-exploit-suggester) – Suggests potential local exploits.
+- [Linux Smart Enumeration](https://github.com/diego-treitos/linux-smart-enumeration) – Comprehensive Linux enumeration script.
+- [Linux Priv Checker](https://github.com/linted/linuxprivchecker) – Python-based privilege escalation checker.
+
+---
+
+These repositories and tools are invaluable for mastering privilege escalation across different operating systems, preparing for certifications like **OSCP**, and improving penetration testing skills.
