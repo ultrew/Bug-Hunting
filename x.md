@@ -16,7 +16,7 @@ I performed a static analysis of the provided sample ( which I created using ai 
 
 ---
 
-## Summary of findings (short)
+## Summary of findings
 - **File type:** ELF 64-bit LSB PIE executable, x86-64, stripped.
 - **Hashes:**  
   - SHA256: `70daf232c4baa313714d241fb5e8adc2458d34f94a895757379a915ab6c497e3`  
@@ -77,9 +77,44 @@ I included only the essential screenshots in `Screenshots/`:
 7. `07_virus_total.png` — VirusTotal hash lookup result
 
 
-## Safety note (I follow this)
+## Safety note
 
 I did **not** execute the sample. I only performed static inspection. I recommend doing any dynamic or hostile-sample work inside isolated VMs or dedicated sandbox infrastructure.
+
+---
+
+1. **What is malware analysis?**
+   The process of examining malicious software to understand its functionality, origin, and potential impact.
+
+2. **What is static vs dynamic analysis?**
+
+   * **Static analysis**: Examining malware without executing it (e.g., strings, disassembly).
+   * **Dynamic analysis**: Observing malware behavior while executing in a controlled environment.
+
+3. **How can you identify malicious strings in a file?**
+   By extracting and analyzing readable strings (e.g., suspicious URLs, IPs, API calls) that may indicate malicious intent.
+
+4. **What does VirusTotal do?**
+   It scans files and URLs with multiple antivirus engines and provides detection results and threat intelligence.
+
+5. **What are file hashes used for?**
+   To uniquely identify files, verify integrity, and detect known malware samples.
+
+6. **What is reverse engineering?**
+   The process of deconstructing a program to understand its structure, functionality, and behavior.
+
+7. **What are IOCs (Indicators of Compromise)?**
+   Artifacts such as IPs, domains, file hashes, or registry keys that indicate malicious activity.
+
+8. **What is Ghidra and how is it used?**
+   Ghidra is an open-source reverse engineering tool used for analyzing compiled code through disassembly and decompilation.
+
+9. **How can you tell if a file is obfuscated?**
+   Indicators include unreadable strings, junk code, unusual control flow, or encryption of code/data.
+
+10. **What is the danger of opening unknown files?**
+    They may execute malicious code, leading to system compromise or data theft.
+
 
 ---
 
