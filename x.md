@@ -66,6 +66,7 @@ objdump -x malware > objdump_full.txt
 ## Screenshots I included
 
 I included only the essential screenshots in `Screenshots/`:
+
 0. `00_listing_after_compile.png` - Compilation of binary
 1. `01_hashes.png` — hash outputs
 2. `02_strings.png` — `strings` output with the suspicious literals
