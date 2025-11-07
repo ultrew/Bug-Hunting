@@ -7,6 +7,8 @@ Server Side Template Injection (SSTI) is a web security vulnerability where an a
 ## What is a Template Engine?
 
 A template engine generates dynamic web pages by combining static templates with data. It takes placeholders in the template (like variables or expressions) and replaces them with actual data at runtime.
+Detect using : 
+`${{<%[%'"}}%\`
 
 Example using Python Flask with Jinja2 engine:
 
