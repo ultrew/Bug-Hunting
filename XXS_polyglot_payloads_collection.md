@@ -1,3 +1,21 @@
+## XSS Resources
+
+### 1. Tiny XSS Payloads
+A curated collection of extremely small XSS payloads useful for bypassing filters and testing injection points.
+
+- Repository: https://github.com/terjanq/Tiny-XSS-Payloads
+- Maintained by: terjanq
+- Description: Minimalistic XSS payloads that work in various contexts and constrained injection points.
+
+### 2. OWASP XSS Filter Evasion Cheat Sheet
+Comprehensive list of techniques used to bypass XSS filters and WAF protections.
+
+- Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html
+- Maintained by: OWASP Cheat Sheet Series
+- Description: Demonstrates numerous payload variations and encoding tricks that can evade XSS filtering mechanisms. :contentReference[oaicite:0]{index=0}
+
+####################################################################################################################################
+  
 # Ultimate XSS Polyglot Payloads for Ethical Bug Hunting & CTF
 
 This collection provides 60 advanced polyglot payloads for Capture The Flag (CTF) challenges and authorized bug bounty programs. Designed to work across multiple contexts (HTML, JavaScript, CSS, SVG, JSON, XML, DOM, and more), these payloads help test for Cross-Site Scripting (XSS) vulnerabilities while bypassing common filters and Web Application Firewalls (WAFs). Each payload triggers a benign `alert('CTF')` to confirm execution without causing harm.
