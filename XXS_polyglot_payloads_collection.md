@@ -9,7 +9,7 @@ This collection provides 60 advanced polyglot payloads for Capture The Flag (CTF
 - **Tool Integration**: Use tools like Burp Suite, OWASP ZAP, or Wireshark to automate injections and analyze responses.
 - **Responsible Testing**: Minimize impact by using benign alerts and report findings immediately without further exploitation.
 - **CTF Strategy**: Leverage payloads incrementally, starting with simple ones to map sanitization weaknesses, and use tools like YARA for pattern matching in CTF challenges.
-
+https://github.com/terjanq/Tiny-XSS-Payloads[https://github.com/terjanq/Tiny-XSS-Payloads]
 ## Payload Categories
 
 ### JavaScript/HTML Polyglots
