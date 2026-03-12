@@ -14,8 +14,8 @@ Comprehensive list of techniques used to bypass XSS filters and WAF protections.
 - Maintained by: OWASP Cheat Sheet Series
 - Description: Demonstrates numerous payload variations and encoding tricks that can evade XSS filtering mechanisms. :contentReference[oaicite:0]{index=0}
 
-####################################################################################################################################
-  
+#############################################################################################
+
 # Ultimate XSS Polyglot Payloads for Ethical Bug Hunting & CTF
 
 This collection provides 60 advanced polyglot payloads for Capture The Flag (CTF) challenges and authorized bug bounty programs. Designed to work across multiple contexts (HTML, JavaScript, CSS, SVG, JSON, XML, DOM, and more), these payloads help test for Cross-Site Scripting (XSS) vulnerabilities while bypassing common filters and Web Application Firewalls (WAFs). Each payload triggers a benign `alert('CTF')` to confirm execution without causing harm.
