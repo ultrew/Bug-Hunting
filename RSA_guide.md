@@ -1,105 +1,85 @@
-You’re right—your notes are structurally correct but **sloppy in notation and missing precision where it matters**. That will absolutely cause mistakes in RSA work. Here’s a **clean, unambiguous, exam/CTF-grade version**.
+Good catch. Your issue is formatting, not concepts. Git (and most markdown renderers) will break when you mix LaTeX-style symbols.
+
+Here is the same content in **clean, plain text (Git-safe, no symbols):**
 
 ---
 
-# ⚡ RSA — Fast, Precise Revision Notes
+# RSA Quick Notes (Plain Text Version)
+
+## Core Idea
+
+RSA is an asymmetric encryption system:
+
+* Public key is used to encrypt
+* Private key is used to decrypt
+* Everything works on integers using modular arithmetic
 
 ---
 
-## 🔑 Core Idea (Exact Definition)
+## Variables
 
-RSA is an **asymmetric cryptosystem**:
-
-* Public key → **(e, n)** → used for encryption
-* Private key → **(d, n)** → used for decryption
-* All operations are done using **modular exponentiation on integers** 
-
----
-
-## 🧠 Variables (Correct Notation)
-
-| Symbol                   | Meaning                  |
-| ------------------------ | ------------------------ |
-| ( p, q )                 | prime numbers            |
-| ( n = p \cdot q )        | modulus                  |
-| ( \phi(n) = (p-1)(q-1) ) | Euler totient            |
-| ( e )                    | public exponent          |
-| ( d )                    | private exponent         |
-| ( m )                    | plaintext (integer form) |
-| ( c )                    | ciphertext               |
+p, q = prime numbers
+n = p * q (modulus)
+phi = (p - 1) * (q - 1)
+e = public exponent
+d = private exponent
+m = plaintext (as integer)
+c = ciphertext
 
 ---
 
-## 📐 Core Equations (Write Them Correctly)
+## Core Equations
 
-### Encryption
+Encryption:
+c = (m ^ e) mod n
 
-[
-c \equiv m^e \pmod{n}
-]
-
-### Decryption
-
-[
-m \equiv c^d \pmod{n}
-]
+Decryption:
+m = (c ^ d) mod n
 
 ---
 
-## ⚙️ Key Generation (No Ambiguity)
+## Key Generation
 
-1. Choose **two primes**:
-   [
+1. Choose two prime numbers:
    p, q
-   ]
 
 2. Compute modulus:
-   [
-   n = p \cdot q
-   ]
+   n = p * q
 
 3. Compute totient:
-   [
-   \phi(n) = (p-1)(q-1)
-   ]
+   phi = (p - 1) * (q - 1)
 
-4. Choose:
-   [
-   1 < e < \phi(n), \quad \gcd(e, \phi(n)) = 1
-   ]
+4. Choose e such that:
+   1 < e < phi
+   gcd(e, phi) = 1
 
-5. Compute modular inverse:
-   [
-   d \equiv e^{-1} \pmod{\phi(n)}
-   ]
+5. Compute d:
+   d = modular inverse of e mod phi
 
 ---
 
-## ⚡ Minimal Example (Correct Form)
+## Minimal Example
 
-* ( p = 13,; q = 9 ) *(toy example)*
-* ( n = 117 )
-* ( \phi(n) = 96 )
-* ( e = 11 )
-* ( d = 35 )
+p = 13
+q = 9
 
-### Encryption
+n = 117
+phi = 96
 
-[
-c = 10^{11} \bmod 117 = 82
-]
+e = 11
+d = 35
 
-### Decryption
+Encryption:
+c = (10 ^ 11) mod 117 = 82
 
-[
-m = 82^{35} \bmod 117 = 10
-]
+Decryption:
+m = (82 ^ 35) mod 117 = 10
 
 ---
 
-## 🧪 Practical Workflow (CTF Reality)
+## Practical Workflow (CTF)
 
-### If p, q are known:
+If p and q are known:
 
 ```python
 phi = (p - 1) * (q - 1)
@@ -109,19 +89,16 @@ m = pow(c, d, n)
 
 ---
 
-## 🔍 Mandatory Validation (Do Not Skip)
+## Validation (Do Not Skip)
 
-### Check 1: Correctness of d
+Check d is correct:
+(d * e) mod phi must equal 1
 
-[
-(d \cdot e) \bmod \phi(n) = 1
-]
-
-If this fails → your **entire result is invalid**
+If not → everything is wrong
 
 ---
 
-### Check 2: Convert integer → bytes
+## Convert Result to Text
 
 ```python
 m_bytes = m.to_bytes((m.bit_length() + 7) // 8, 'big')
@@ -130,82 +107,38 @@ print(m_bytes)
 
 ---
 
-## 🧱 Padding (Where Most Fail)
+## Padding (Important)
 
-If output is not readable:
+If output looks random:
 
-### PKCS#1 v1.5 format:
+Likely format:
+00 02 random_bytes 00 actual_message
 
-```
-00 02 [random bytes] 00 [actual message]
-```
-
-✔ Action:
-
-* Find **first `00` after padding**
-* Extract everything after it
+You must remove everything before the second 00
 
 ---
 
-## ⚠️ Common Errors (Be Brutal Here)
+## Common Mistakes
 
-| Error                  | Consequence               |
-| ---------------------- | ------------------------- |
-| Writing ( n = (p, q) ) | Completely wrong concept  |
-| Wrong φ(n)             | Decryption fails silently |
-| Wrong d                | Garbage output            |
-| Using floats           | Precision destroyed       |
-| Ignoring padding       | Message appears random    |
+* Writing n incorrectly (it is p * q, not a pair)
+* Wrong phi value
+* Wrong d value
+* Using floats instead of integers
+* Ignoring padding
 
 ---
 
-## ⚡ Your Case (Critical Analysis)
+## Mental Model
 
-You got:
-
-```
-m = 310924024341754586049069014240097859710998385184245570453341488382426297925855600
-```
-
-This means:
-
-* ✔ Modular exponentiation worked
-* ❗ Interpretation step still incomplete
+RSA flow:
+p, q → n → phi → d → decrypt → bytes → remove padding → message
 
 ---
 
-## 🔬 Final Step (Non-Optional)
+## One-Line Summary
 
-```python
-m = 310924024341754586049069014240097859710998385184245570453341488382426297925855600
-
-msg = m.to_bytes((m.bit_length() + 7) // 8, 'big')
-
-print(msg)
-print(msg.hex())
-```
+RSA = modular exponentiation + modular inverse + decoding
 
 ---
 
-## 🧠 Mental Compression
-
-RSA pipeline:
-
-```
-(p, q) → n → φ(n) → d → m → bytes → strip padding → plaintext
-```
-
----
-
-## 🧾 One-Line Summary
-
-> RSA = modular exponentiation + modular inverse + correct decoding
-
----
-
-If your output is still unreadable after byte conversion, then:
-
-* either padding exists
-* or your φ(n)/d is subtly wrong
-
-No third option.
+If Git breaks this, the problem is not RSA — it's your formatting discipline.
