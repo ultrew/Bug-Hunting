@@ -18,13 +18,19 @@ RSA is an asymmetric encryption system:
 
 ## Variables
 
-p, q = prime numbers
-n = p * q (modulus)
-phi = (p - 1) * (q - 1)
-e = public exponent
-d = private exponent
-m = plaintext (as integer)
-c = ciphertext
+- p, q = prime numbers
+
+- n = p * q (modulus)
+
+- phi = (p - 1) * (q - 1)
+
+- e = public exponent
+
+- d = private exponent
+
+- m = plaintext (as integer)
+
+- c = ciphertext
 
 ---
 
